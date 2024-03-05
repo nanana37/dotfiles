@@ -35,3 +35,5 @@ alias g='lazygit'
 # fzf
 alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 alias vf='v $(fp)'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -1,3 +1,70 @@
+#
+# .zshrc
+#
+#################################  ALIAS  #################################
+# Default
+alias s='source'
+alias sz='source ~/dotfiles/.zshrc'
+alias zshconfig="vi ~/dotfiles/.zshrc"
+alias vimconfig="vi ~/dotfiles/.vimrc"
+alias zc='zshconfig'
+alias vc='vimconfig'
+alias dot='cd ~/dotfiles'
+
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ls -a'
+alias lal='ls -al'
+alias tree='tree -C'
+alias t='tree -al'
+alias grep='grep --color=auto'
+
+alias g='lazygit'
+
+alias gs='git status'
+alias gd='git diff'
+alias ga='git add'
+alias grs='git restore'
+alias grt='git restore --staged'
+alias gc='git commit'
+alias gp='git push'
+alias gpl='git pull'
+
+alias vi='nvim'
+alias vim='nvim'
+
+alias cl='clear'
+alias hh='history'
+
+alias tm='tmux'
+alias tml='tmux ls'
+alias tma='tmux attach -t'
+alias tms='tmux new -s'
+
+# Batcat
+if [ -x "$(command -v bat)" ]; then
+  alias cat='bat'
+fi
+
+# eza
+if [ -x "$(command -v eza)" ]; then
+  alias ls='eza'
+fi
+
+##################################  FUNCTIONS  ##################################
+# C-z to fg
+fancy-ctrl-z() {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line
+  else
+    zle push-input
+    zle clear-screen
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
 #################################  HISTORY  #################################
 # history
 HISTFILE=$HOME/.zsh-history

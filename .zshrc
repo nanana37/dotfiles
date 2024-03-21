@@ -7,8 +7,10 @@ alias s='source'
 alias sz='source ~/dotfiles/.zshrc'
 alias zshconfig="vi ~/dotfiles/.zshrc"
 alias vimconfig="vi ~/dotfiles/.vimrc"
+alias tmuxconfig="vi ~/dotfiles/.tmux.conf"
 alias zc='zshconfig'
 alias vc='vimconfig'
+alias tc='tmuxconfig'
 alias dot='cd ~/dotfiles'
 
 alias ls='ls --color=auto'

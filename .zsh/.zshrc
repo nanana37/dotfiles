@@ -1,13 +1,17 @@
 #
 # .zshrc
 #
+
+# Load OS-dependent
+[ -f $ZDOTDIR/.zshrc_`uname` ] && source $ZDOTDIR/.zshrc_`uname`
+
 #################################  ALIAS  #################################
 # Default
 alias s='source'
-alias sz='source ~/dotfiles/.zshrc'
-alias zshconfig="vi ~/dotfiles/.zshrc"
-alias vimconfig="vi ~/dotfiles/.vimrc"
-alias tmuxconfig="vi ~/dotfiles/.tmux.conf"
+alias sz='source $ZDOTDIR/.zshrc'
+alias zshconfig="vi $ZDOTDIR/.zshrc"
+alias vimconfig="vi $DOTFILES/.vimrc"
+alias tmuxconfig="vi $DOTFILES/.tmux.conf"
 alias zc='zshconfig'
 alias vc='vimconfig'
 alias tc='tmuxconfig'
@@ -68,11 +72,6 @@ zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
 #################################  HISTORY  #################################
-# history
-HISTFILE=$HOME/.zsh-history
-HISTSIZE=100000             # メモリ上に保存する履歴のサイズ
-SAVEHIST=1000000            # ファイルに保存する履歴のサイズ
-
 # share .zshhistory
 setopt inc_append_history   # 実行時に履歴をファイルに追加
 setopt share_history        # 履歴を他のシェルとリアルタイム共有する

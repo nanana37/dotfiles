@@ -69,7 +69,7 @@ bindkey '^Z' fancy-ctrl-z
 
 #################################  HISTORY  #################################
 # history
-HISTFILE=$HOME/.zsh-history
+HISTFILE=$HOME/.zsh_history
 HISTSIZE=100000             # メモリ上に保存する履歴のサイズ
 SAVEHIST=1000000            # ファイルに保存する履歴のサイズ
 

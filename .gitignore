@@ -3,3 +3,7 @@ lazy-lock.json
 
 .config/*
 !/.config/nvim
+
+.zsh/*
+!/.zsh/.zshrc
+!/.zsh/.zshrc_*

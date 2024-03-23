@@ -12,9 +12,11 @@ alias sz='source $ZDOTDIR/.zshrc'
 alias zshconfig="vi $ZDOTDIR/.zshrc"
 alias vimconfig="vi $DOTFILES/.vimrc"
 alias tmuxconfig="vi $DOTFILES/.tmux.conf"
+alias envconfig="vi $DOTFILES/.zshenv"
 alias zc='zshconfig'
 alias vc='vimconfig'
 alias tc='tmuxconfig'
+alias ec='envconfig'
 alias dof='cd ~/dotfiles'
 
 alias ls='ls --color=auto'

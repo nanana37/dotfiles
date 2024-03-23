@@ -29,5 +29,5 @@ export FZF_CTRL_R_OPTS="
   --header 'Press CTRL-Y to copy command into clipboard'"
 export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
-  --preview 'eza {} -h -T -F  --no-user --no-time --no-filesize --no-permissions'
+  --preview 'eza {} -a -h -T -F  --no-user --no-time --no-filesize --no-permissions --color=always'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"

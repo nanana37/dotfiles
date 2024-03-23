@@ -60,7 +60,6 @@ if [ -x "$(command -v eza)" ]; then
 fi
 
 # fzf
-alias fzf='fzf-tmux -p 80% --reverse --preview "bat --color=always {}"'
 alias vf='vim $(fzf)'
 
 ##################################  FUNCTIONS  ##################################

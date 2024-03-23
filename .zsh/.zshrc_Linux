@@ -1,5 +1,5 @@
 #
-# Linux specific stuff
+# zshrc for Linux
 #
 
 # Homebrew on Linux
@@ -9,3 +9,8 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # nvim
 # Get as AppImage
 export PATH="$PATH:/opt/nvim/"
+
+# fzf
+alias fzf='fzf-tmux --reverse --preview "bat --color=always {}"'
+# for fzf key bindings
+export FZF_TMUX_OPTS="--reverse"

@@ -1,0 +1,9 @@
+#
+# zshrc for Darwin (macOS)
+#
+
+# fzf
+# popup needs screen
+alias fzf='fzf-tmux -p 80% --reverse --preview "bat --color=always {}"'
+# for fzf key bindings
+export FZF_TMUX_OPTS="-p 80% --reverse"

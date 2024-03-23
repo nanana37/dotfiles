@@ -21,7 +21,7 @@ done
 # Install dependencies
 echo "Installing dependencies..."
 brew install zsh tmux
-brew install starship
+brew install starship bat eza fzf ripgrep
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

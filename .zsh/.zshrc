@@ -59,6 +59,10 @@ if [ -x "$(command -v eza)" ]; then
   alias ls='eza'
 fi
 
+# fzf
+alias fzf='fzf-tmux -p 80% --reverse --preview "bat --color=always {}"'
+alias vf='vim $(fzf)'
+
 ##################################  FUNCTIONS  ##################################
 # C-z to fg
 fancy-ctrl-z() {

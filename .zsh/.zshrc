@@ -119,3 +119,7 @@ setopt no_flow_control
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 ## To customize prompt, run `p10k configure` or edit ~/dotfiles/.zsh/.p10k.zsh.
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+
+
+# Load for local
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local

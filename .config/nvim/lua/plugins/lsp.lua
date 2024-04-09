@@ -21,20 +21,24 @@ return {
         desc = "Copilot Status",
       },
       {
-        "<leader>cpt",
+        "<leader>cpe",
         function()
           local command = require("copilot.command")
-          local client = require("copilot.client")
-          if client.is_disabled() then
-            command.enable()
-            command.status()
-          else
-            command.disable()
-            command.status()
-          end
+          command.enable()
+          command.status()
         end,
         mode = "n",
-        desc = "Toggle Copilot",
+        desc = "Enable Copilot",
+      },
+      {
+        "<leader>cpd",
+        function()
+          local command = require("copilot.command")
+          command.disable()
+          command.status()
+        end,
+        mode = "n",
+        desc = "Disable Copilot",
       },
     },
     opts = function()
@@ -42,8 +46,9 @@ return {
       wk.register({
         ["<leader>cp"] = {
           name = "Copilot",
-          s = { "Status" },
-          t = { "Toggle" },
+          s = { "Copilot Status" },
+          e = { "Enable Copilot" },
+          d = { "Disable Copilot" },
         },
       })
     end,

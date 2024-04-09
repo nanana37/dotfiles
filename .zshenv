@@ -9,8 +9,8 @@ export ZDOTDIR=$DOTFILES/.zsh
 
 # history
 export HISTFILE=$HOME/.zsh_history
-export HISTSIZE=100000             # メモリ上に保存する履歴のサイズ
-export SAVEHIST=1000000            # ファイルに保存する履歴のサイズ
+export HISTSIZE=100000             # size of memory
+export SAVEHIST=1000000            # size of HISTFILE
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'

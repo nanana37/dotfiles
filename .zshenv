@@ -1,6 +1,7 @@
 #
 # .zshenv
 #  Set environment variables for zsh.
+#  Loaded by zsh every time.
 #
 
 # PATH

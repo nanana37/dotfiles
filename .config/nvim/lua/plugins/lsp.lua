@@ -3,9 +3,11 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      clangd = function(_, opts)
-        opts.capabilities.offsetEncoding = { "utf-16" }
-      end,
+      setup = {
+        clangd = function(_, opts)
+          opts.capabilities.offsetEncoding = { "utf-16" }
+        end,
+      },
     },
   },
   -- Copilot

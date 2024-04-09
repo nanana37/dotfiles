@@ -20,8 +20,8 @@ done
 
 # Install dependencies
 echo "Installing dependencies..."
-brew install zsh tmux
-brew install bat eza fzf ripgrep powerlevel10k
+
+sh brew.sh
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

@@ -15,4 +15,10 @@ alias rp="sh $SCRIPTS/class/main.sh"
 
 # For notes
 export OBSIDIAN=$GHOME/Obsidian
-alias co="cd $OBSIDIAN"
+alias ob="cd $OBSIDIAN"
+
+## Function to open Obsidian
+obsidian() {
+  open -a "Obsidian" $1
+}
+alias o="obsidian"

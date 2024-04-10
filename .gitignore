@@ -8,3 +8,4 @@ lazy-lock.json
 !/.zsh/.zshrc
 !/.zsh/.zshrc_*
 !/.zsh/.p10k.zsh
+!/.zsh/.zshrc.private

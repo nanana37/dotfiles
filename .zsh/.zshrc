@@ -150,3 +150,6 @@ source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # Load for local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# Load private rc
+[ -f $ZDOTDIR/.zshrc.private ] && source $ZDOTDIR/.zshrc.private

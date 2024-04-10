@@ -1,0 +1,18 @@
+#
+# .zshrc.private
+# My private settings for original scripts, notes config, etc.
+#
+
+# Need: Before this, create a symlink to Google Drive
+# TODO: prompt to a link
+export GHOME=$HOME/GDrive
+
+# For original scripts
+export SCRIPTS=$HOME/Documents/scripts
+
+# For class
+alias rp="sh $SCRIPTS/class/main.sh"
+
+# For notes
+export OBSIDIAN=$GHOME/Obsidian
+alias co="cd $OBSIDIAN"

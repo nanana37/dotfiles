@@ -130,6 +130,29 @@ export FZF_ALT_C_OPTS="
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --zsh)"
 
+# fd - cd to selected directory
+fcd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
+}
+alias c='fcd'
+
+# fzf with z (jump to recent directory)
+fzf-z-search() {
+    local res=$(z | sort -rn | cut -c 12- | fzf)
+    if [ -n "$res" ]; then
+        BUFFER+="cd $res"
+        zle accept-line
+    else
+        return 1
+    fi
+}
+
+zle -N fzf-z-search
+bindkey '^e' fzf-z-search
+
 #################################  OTHERS  #################################
 # automatically change directory when dir name is typed
 setopt auto_cd
@@ -149,6 +172,9 @@ source $HOMEBREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 ## To customize prompt, run `p10k configure` or edit ~/dotfiles/.zsh/.p10k.zsh.
 [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
+
+# z
+[ -f $HOME/zsh-z/zsh-z.plugin.zsh ] && source $HOME/zsh-z/zsh-z.plugin.zsh
 
 # Load for local
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local

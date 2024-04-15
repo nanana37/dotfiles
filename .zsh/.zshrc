@@ -111,8 +111,6 @@ zstyle ':completion:*:default' menu select=2
 #################################  FZF #################################
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 # fzf key bindings
-# Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
 # Show hidden files/dirs
 export FZF_TMUX=1
 export FZF_CTRL_T_OPTS="
@@ -129,6 +127,8 @@ export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'eza {} -a -h -T -F  --no-user --no-time --no-filesize --no-permissions --color=always'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
 
 #################################  OTHERS  #################################
 # automatically change directory when dir name is typed

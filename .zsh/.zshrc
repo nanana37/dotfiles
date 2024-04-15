@@ -111,6 +111,8 @@ zstyle ':completion:*:default' menu select=2
 #################################  FZF #################################
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 # fzf key bindings
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
 # Show hidden files/dirs
 export FZF_TMUX=1
 export FZF_CTRL_T_OPTS="

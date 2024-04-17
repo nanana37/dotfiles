@@ -1,7 +1,9 @@
 return {
   {
     "folke/flash.nvim",
-    enabled = true,
+    keys = function()
+      return {}
+    end,
   },
   -- Disable default tab behavior (for Supertab)
   {

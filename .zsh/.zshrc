@@ -16,6 +16,12 @@ fi
 # Load OS-dependent
 [ -f $ZDOTDIR/.zshrc_`uname` ] && source $ZDOTDIR/.zshrc_`uname`
 
+# Load for local
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
+# Load private rc
+[ -f $ZDOTDIR/.zshrc.private ] && source $ZDOTDIR/.zshrc.private
+
 #################################  ALIAS  #################################
 # Default
 alias s='source'
@@ -70,8 +76,6 @@ if [ -x "$(command -v eza)" ]; then
   alias ls='eza'
 fi
 
-# fzf
-alias vf='vim $(fzf)'
 
 ##################################  FUNCTIONS  ##################################
 # C-z to fg
@@ -87,10 +91,23 @@ fancy-ctrl-z() {
 zle -N fancy-ctrl-z
 bindkey '^Z' fancy-ctrl-z
 
-#################################  HISTORY  #################################
+
+#################################  CONFIG  #################################
 # share .zshhistory
 setopt inc_append_history   # 実行時に履歴をファイルに追加
 setopt share_history        # 履歴を他のシェルとリアルタイム共有する
+
+# automatically change directory when dir name is typed
+setopt auto_cd
+
+# disable ctrl+s, ctrl+q
+setopt no_flow_control
+
+# vi mode
+bindkey -v
+# better vi mode
+# source $HOMEBREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
 
 #################################  COMPLEMENT  #################################
 # enable completion
@@ -108,7 +125,8 @@ zstyle ':completion:*' group-name ''
 ### select=2: 補完候補を一覧から選択する。補完候補が2つ以上なければすぐに補完する。
 zstyle ':completion:*:default' menu select=2
 
-#################################  FZF #################################
+
+#################################  FZF  #################################
 export FZF_DEFAULT_COMMAND='rg --files --hidden --follow --glob "!.git/*"'
 # fzf key bindings
 # Show hidden files/dirs
@@ -153,20 +171,10 @@ fzf-z-search() {
 zle -N fzf-z-search
 bindkey '^e' fzf-z-search
 
-#################################  OTHERS  #################################
-# automatically change directory when dir name is typed
-setopt auto_cd
-
-# disable ctrl+s, ctrl+q
-setopt no_flow_control
-
 
 #################################  DEPENDENCIES  #################################
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# better vi mode
-source $HOMEBREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # p10k
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -175,9 +183,3 @@ source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # z
 [ -f $HOME/zsh-z/zsh-z.plugin.zsh ] && source $HOME/zsh-z/zsh-z.plugin.zsh
-
-# Load for local
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
-
-# Load private rc
-[ -f $ZDOTDIR/.zshrc.private ] && source $ZDOTDIR/.zshrc.private

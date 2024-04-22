@@ -2,7 +2,7 @@
 
 # Define variables
 DOTFILES="$HOME/dotfiles"
-FILES=".bashrc .bash_profile .inputrc .gitconfig .config/* .zshrc .tmux.conf"
+FILES=".bashrc .bash_profile .inputrc .gitconfig .config/* .zshenv .zsh/* .tmux.conf"
 
 # # Set default shell to Bash
 # if [ "$(basename "$SHELL")" != "bash" ]; then

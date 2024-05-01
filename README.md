@@ -6,6 +6,7 @@ My dotfiles.
 - [x] zsh
 - [x] tmux
 - [ ] bash (relatively slow for git prompt)
+- [ ] Wezterm (not yet. See [Considerations for Wezterm](#Considerations-for-Wezterm))
 
 ## Installation
 ```
@@ -21,3 +22,25 @@ Previous dotfiles is [here](https://github.com/nanana37/old-dotfiles) (*private 
 - [x] neovim (with [vim-plug](https://github.com/junegunn/vim-plug))
 - [x] zsh
 - [x] tmux
+
+
+## Considerations for Wezterm
+
+Terminal emulator
+[wez/wezterm](https://github.com/wez/wezterm)
+
+Pros
+- GPU-accelerated
+- Cross platform
+- Multiplexer (no need for tmux?)
+- Customize
+  - Lua
+  - Rich documents
+  - Lots of colorscheme :)
+
+Cons
+- vs tmux
+  - no popup
+  - no kill-session
+- vs iTerm
+  - no Hotkey

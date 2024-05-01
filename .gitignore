@@ -9,3 +9,5 @@ lazy-lock.json
 !/.zsh/.zshrc_*
 !/.zsh/.p10k.zsh
 !/.zsh/.zshrc.private
+
+!.wezterm.lua

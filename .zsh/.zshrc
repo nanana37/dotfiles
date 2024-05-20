@@ -89,7 +89,6 @@ fancy-ctrl-z() {
   fi
 }
 zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
 
 
 #################################  CONFIG  #################################
@@ -169,8 +168,10 @@ fzf-z-search() {
 }
 
 zle -N fzf-z-search
-bindkey '^e' fzf-z-search
 
+# Key bindings
+bindkey '^e' fzf-z-search
+bindkey '^Z' fancy-ctrl-z
 
 #################################  DEPENDENCIES  #################################
 # FZF

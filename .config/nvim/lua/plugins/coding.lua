@@ -1,3 +1,4 @@
+-- Plugins for coding
 return {
   {
     "folke/flash.nvim",
@@ -5,4 +6,7 @@ return {
       return {}
     end,
   },
+  -- {
+  --   "echasnovski/mini.pairs",
+  -- },
 }

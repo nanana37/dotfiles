@@ -8,7 +8,7 @@ return {
     "stevearc/oil.nvim",
     lazy = false,
     keys = {
-      { "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" } },
+      { "-", "<CMD>Oil<CR>", { desc = "Open parent directory" } },
       -- Floating window does not support preview.
       -- [Issue](https://github.com/stevearc/oil.nvim/issues/303) already exisits.
       -- { "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" } },
@@ -20,10 +20,9 @@ return {
         ["<BS>"] = "actions.parent",
         ["<C-s>"] = false,
         ["<C-h>"] = false,
-        ["`"] = false,
-        ["~"] = false,
-        ["<C-g>"] = "actions.cd",
-        ["<C-t>"] = "actions.tcd",
+        ["<C-t>"] = "actions.select_vsplit",
+        ["<C-l>"] = false,
+        ["<C-r>"] = "actions.refresh",
       },
       view_options = {
         show_hidden = true,

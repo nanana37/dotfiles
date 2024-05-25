@@ -1,9 +1,9 @@
 -- Plugins that jump between files and directories.
 return {
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    enabled = false,
-  },
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   enabled = false,
+  -- },
   {
     "stevearc/oil.nvim",
     lazy = false,

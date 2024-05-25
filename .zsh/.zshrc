@@ -44,7 +44,7 @@ alias tree='tree -C'
 alias t='tree -al'
 alias grep='grep --color=auto'
 
-alias g='lazygit'
+alias g='gitui'
 
 alias gs='git status'
 alias gd='git diff'

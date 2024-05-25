@@ -3,6 +3,7 @@ lazy-lock.json
 
 .config/*
 !/.config/nvim
+!/.config/gitui
 
 .zsh/*
 !/.zsh/.zshrc

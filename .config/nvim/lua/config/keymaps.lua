@@ -2,6 +2,11 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
+-- "x""X" doesn't rewrite register
+vim.keymap.set("n", "x", '"_x', { noremap = true })
+vim.keymap.set("n", "X", '"_X', { noremap = true })
+
+-- LazyVim
 vim.keymap.del("n", "<leader>l")
 vim.keymap.del("n", "<leader>L")
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })

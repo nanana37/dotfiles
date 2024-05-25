@@ -6,6 +6,7 @@ lazy-lock.json
 
 .zsh/*
 !/.zsh/.zshrc
+!/.zsh/.zprofile
 !/.zsh/.zshrc_*
 !/.zsh/.p10k.zsh
 !/.zsh/.zshrc.private

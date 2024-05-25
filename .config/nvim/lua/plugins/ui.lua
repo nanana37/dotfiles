@@ -10,7 +10,7 @@ return {
       plugins = { tmux = true },
     },
   },
-  {
-    "folke/twilight.nvim",
-  },
+  -- {
+  --   "folke/twilight.nvim", -- grey out code
+  -- },
 }

@@ -1,6 +1,7 @@
 {
   "extras": [
     "lazyvim.plugins.extras.coding.copilot",
+    "lazyvim.plugins.extras.editor.aerial",
     "lazyvim.plugins.extras.ui.edgy"
   ],
   "news": {

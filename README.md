@@ -6,10 +6,11 @@ My dotfiles.
 - [x] zsh
 - [x] tmux
 - [ ] bash (relatively slow for git prompt)
-- [ ] Wezterm (not yet. See [Considerations for Wezterm](#Considerations-for-Wezterm))
+- [ ] Wezterm (not yet. See [Considerations for Wezterm](#considerations-for-wezterm))
 
 ## Installation
-```
+
+```bash
 git clone https://github.com/nanana37/dotfiles.git
 cd dotfiles
 make install
@@ -23,13 +24,13 @@ Previous dotfiles is [here](https://github.com/nanana37/old-dotfiles) (*private 
 - [x] zsh
 - [x] tmux
 
-
 ## Considerations for Wezterm
 
 Terminal emulator
 [wez/wezterm](https://github.com/wez/wezterm)
 
 Pros
+
 - GPU-accelerated
 - Cross platform
 - Multiplexer (no need for tmux?)
@@ -39,6 +40,7 @@ Pros
   - Lots of colorscheme :)
 
 Cons
+
 - vs tmux
   - no popup
   - no kill-session

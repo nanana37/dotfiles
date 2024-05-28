@@ -1,8 +1,15 @@
 return {
   -- markdown
   {
+    -- provided in LazyExtras: lang.markdown
     "lukas-reineke/headlines.nvim",
-    event = "VeryLazy",
+
+    -- NOTE: A little noisy for me; code block (not-transparent) & headline# marker (overlaps original text)
+    enabled = false,
+
+    event = "BufRead",
+
+    -- Mojibake
     ft = function()
       return {}
     end,

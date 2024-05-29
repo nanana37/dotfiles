@@ -26,7 +26,7 @@ return {
     opts = {
       arg = leet_arg,
       --@type lc.lang
-      lang = "golang",
+      lang = "cpp",
       -- which-key
       function()
         local wk = require("which-key")

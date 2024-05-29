@@ -1,14 +1,14 @@
 #!/bin/bash
+#
 # GNU Stow is a symlink farm manager
+# https://www.gnu.org/software/stow/manual/stow.html
+#
 
+# Prepare the directory structure
+mkdir -p $HOME/.config
+
+# Stow the dotfiles
 PACKDIR=$DOTFILES/packages
-CONFDIR=$HOME/.config
-
-mkdir -p $CONFDIR
-stow -R -v -d $DOTFILES -t $CONFDIR nvim
-
-PACKAGES="zsh tmux"
-stow -R -v -d $PACKDIR -t $HOME $PACKAGES
-
-PACKAGES="bash wezterm"
-stow -R -v -d $PACKDIR -t $HOME $PACKAGES
+for package in $(ls $PACKDIR); do
+	stow -R -v -d $PACKDIR -t $HOME $package
+done

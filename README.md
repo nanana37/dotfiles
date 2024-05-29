@@ -2,7 +2,7 @@
 
 My dotfiles.
 
-GNU Stow is used to manage symlinks.
+[GNU Stow](https://www.gnu.org/software/stow/manual/stow.html) is used to manage symlinks.
 
 - [x] neovim (with [lazy.nvim](https://github.com/folke/lazy.nvim))
 - [x] zsh

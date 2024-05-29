@@ -6,7 +6,7 @@
 
 # PATH
 export DOTFILES=$HOME/dotfiles
-export ZDOTDIR=$DOTFILES/.zsh
+export ZDOTDIR=$HOME/.zsh
 
 # history
 export HISTFILE=$HOME/.zsh_history

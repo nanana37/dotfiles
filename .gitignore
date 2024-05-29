@@ -1,16 +1,10 @@
 lazy-lock.json
 .DS_Store
 
-.config/*
-
-!/nvim
-
-zsh/.zsh/*
+.zsh
 !.zshenv
 !.zprofile
 !.zshrc
 !.zshrc_*
 !.zshrc.private
 !.p10k.zsh
-
-!.wezterm.lua

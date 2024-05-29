@@ -2,6 +2,8 @@
 
 My dotfiles.
 
+GNU Stow is used to manage symlinks.
+
 - [x] neovim (with [lazy.nvim](https://github.com/folke/lazy.nvim))
 - [x] zsh
 - [x] tmux
@@ -13,7 +15,7 @@ My dotfiles.
 ```bash
 git clone https://github.com/nanana37/dotfiles.git
 cd dotfiles
-make install
+sh scripts/install.sh
 ```
 
 ## old version

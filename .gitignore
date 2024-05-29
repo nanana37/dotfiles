@@ -1,8 +1,7 @@
 lazy-lock.json
 .DS_Store
 
-.zsh
-!.zshenv
+packages/zsh/.zsh/*
 !.zprofile
 !.zshrc
 !.zshrc_*

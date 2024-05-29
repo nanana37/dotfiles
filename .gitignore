@@ -2,7 +2,8 @@ lazy-lock.json
 .DS_Store
 
 .config/*
-!/.config/nvim
+
+!/nvim
 
 zsh/.zsh/*
 !.zshenv

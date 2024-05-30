@@ -14,11 +14,5 @@ export SCRIPTS=$HOME/Documents/scripts
 alias rp="sh $SCRIPTS/class/main.sh"
 
 # For notes
-export OBSIDIAN=$GHOME/Obsidian
-alias ob="cd $OBSIDIAN"
-
-## Function to open Obsidian
-obsidian() {
-  open -a "Obsidian" $1
-}
-alias o="obsidian"
+export OBSIDIAN=$HOME/Obsidian
+alias o="nvim $OBSIDIAN/Personal"

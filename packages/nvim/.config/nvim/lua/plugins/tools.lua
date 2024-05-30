@@ -61,4 +61,47 @@ return {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*", -- recommended, use latest release instead of latest commit
+    lazy = true,
+    ft = "markdown",
+    -- Load obsidian.nvim only for markdown files in vault
+    event = {
+      "BufReadPre " .. vim.fn.expand("~") .. "/Obsidian/**.md",
+      "BufNewFile " .. vim.fn.expand("~") .. "/Obsidian/**.md",
+    },
+    keys = function()
+      return {
+        { "<leader>ot", "<cmd>ObsidianToday<cr>", desc = "Obsidian Today" },
+      }
+    end,
+    dependencies = {
+      -- Required
+      "nvim-lua/plenary.nvim",
+      -- Completion
+      "hrsh7th/nvim-cmp",
+      -- Picker
+      "nvim-telescope/telescope.nvim",
+      -- Syntax highlighting
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {
+      workspaces = {
+        {
+          name = "Personal",
+          path = "~/Obsidian/Personal",
+        },
+        {
+          name = "Work",
+          path = "~/Obsidian/Work",
+        },
+      },
+      notes_subdir = "notes",
+      daily_notes = {
+        folder = "daily",
+      },
+      new_notes_location = "notes_subdir",
+    },
+  },
 }

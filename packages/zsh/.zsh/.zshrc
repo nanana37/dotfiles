@@ -1,8 +1,4 @@
-#
-# .zshrc
-# Loaded only once per session.
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/dotfiles/.zsh/.zshrc.
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zsh/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
@@ -11,7 +7,7 @@ fi
 
 #
 # .zshrc
-#
+# Loaded only once per session.
 
 # Load OS-dependent
 [ -f $ZDOTDIR/.zshrc_`uname` ] && source $ZDOTDIR/.zshrc_`uname`
@@ -175,10 +171,9 @@ bindkey '^Z' fancy-ctrl-z
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# p10k
+# To customize prompt, run `p10k configure` or edit ~/.zsh/.p10k.zsh.
+[[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
-## To customize prompt, run `p10k configure` or edit ~/dotfiles/.zsh/.p10k.zsh.
-[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
 # z
 [ -f $HOME/zsh-z/zsh-z.plugin.zsh ] && source $HOME/zsh-z/zsh-z.plugin.zsh

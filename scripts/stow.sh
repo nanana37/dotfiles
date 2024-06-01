@@ -8,7 +8,7 @@
 mkdir -p $HOME/.config
 
 # Stow the dotfiles
-PACKDIR=$DOTFILES/packages
+PACKDIR=packages
 for package in $(ls $PACKDIR); do
 	stow -R -v -d $PACKDIR -t $HOME $package
 done

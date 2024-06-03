@@ -10,6 +10,7 @@ return {
       },
     },
   },
+  { "zbirenbaum/copilot.lua", opts = { filetypes = { markdown = false } } },
   {
     "zbirenbaum/copilot.lua",
     keys = {

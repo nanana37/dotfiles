@@ -72,7 +72,9 @@ return {
     },
     keys = function()
       return {
-        { "<leader>ot", "<cmd>ObsidianToday<cr>", desc = "Obsidian Today" },
+        { "<leader>obt", "<cmd>ObsidianToday<cr>", desc = "Obsidian Today" },
+        { "<leader>obw", "<cmd>ObsidianWorkspace<cr>", desc = "ObsidianWorkspace" },
+        { "<leader>obs", "<cmd>ObsidianSearch<cr>", desc = "ObsidianSearch" },
       }
     end,
     dependencies = {

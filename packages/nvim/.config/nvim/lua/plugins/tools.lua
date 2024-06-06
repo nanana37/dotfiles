@@ -65,7 +65,6 @@ return {
     "epwalsh/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
     lazy = true,
-    ft = "markdown",
     -- Load obsidian.nvim only for markdown files in vault
     event = {
       "BufReadPre " .. vim.fn.expand("~") .. "/Obsidian/**.md",

@@ -27,21 +27,6 @@ return {
       arg = leet_arg,
       --@type lc.lang
       lang = "cpp",
-      -- which-key
-      function()
-        local wk = require("which-key")
-        wk.register({
-          ["<leader>l"] = {
-            name = "Leet",
-            l = { "Leet list" },
-            r = { "Leet run" },
-            t = { "Leet tabs" },
-            c = { "Leet console" },
-            s = { "Leet submit" },
-            o = { "Leet open" },
-          },
-        })
-      end,
     },
   },
   {

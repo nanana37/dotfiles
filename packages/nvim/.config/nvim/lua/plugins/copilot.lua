@@ -30,16 +30,5 @@ return {
         desc = "Disable Copilot",
       },
     },
-    opts = function()
-      local wk = require("which-key")
-      wk.register({
-        ["<leader>cp"] = {
-          name = "Copilot",
-          s = { "Copilot Status" },
-          e = { "Enable Copilot" },
-          d = { "Disable Copilot" },
-        },
-      })
-    end,
   },
 }

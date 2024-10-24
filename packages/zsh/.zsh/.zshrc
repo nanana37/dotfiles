@@ -150,6 +150,8 @@ fcd() {
 }
 alias c='fcd'
 
+# tldr
+alias tld='tldr "$(tldr -l | fzf)"'
 
 #################################  DEPENDENCIES  #################################
 # FZF

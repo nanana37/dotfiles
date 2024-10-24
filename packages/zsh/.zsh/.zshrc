@@ -150,22 +150,6 @@ fcd() {
 }
 alias c='fcd'
 
-# fzf with z (jump to recent directory)
-fzf-z-search() {
-    local res=$(z | sort -rn | cut -c 12- | fzf)
-    if [ -n "$res" ]; then
-        BUFFER+="cd $res"
-        zle accept-line
-    else
-        return 1
-    fi
-}
-
-zle -N fzf-z-search
-
-# Key bindings
-bindkey '^e' fzf-z-search
-bindkey '^Z' fancy-ctrl-z
 
 #################################  DEPENDENCIES  #################################
 # FZF
@@ -175,5 +159,5 @@ bindkey '^Z' fancy-ctrl-z
 [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
-# z
-[ -f $HOME/zsh-z/zsh-z.plugin.zsh ] && source $HOME/zsh-z/zsh-z.plugin.zsh
+# zoxide
+eval "$(zoxide init zsh)"

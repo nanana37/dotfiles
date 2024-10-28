@@ -55,6 +55,7 @@ alias vim='nvim'
 alias cl='clear'
 alias hh='history'
 
+alias tmux='tmux -u'  # enforce UTF-8
 alias tm='tmux'
 alias tml='tmux ls'
 alias tma='tmux attach -t'

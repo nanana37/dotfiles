@@ -139,7 +139,7 @@ export FZF_ALT_C_OPTS="
   --preview 'eza {} -a -h -T -F  --no-user --no-time --no-filesize --no-permissions --color=always'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 # Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
+source <(fzf --zsh)
 
 # fd - cd to selected directory
 fcd() {

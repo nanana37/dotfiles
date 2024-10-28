@@ -8,8 +8,16 @@ sh scripts/stow.sh
 # Install dependencies
 echo "Installing dependencies..."
 
-sh scripts/req_apt.sh
-sh scripts/req_brew.sh
+### apt ###
+sudo apt install git npm zip stow
+
+### brew ###
+# Below should be downloaded through brew for me, due to the version.
+brew install llvm@17
+brew install fzf tmux zsh neovim ripgrep
+
+# Other CLI tools
+brew install bat eza powerlevel10k lazygit
 
 # tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

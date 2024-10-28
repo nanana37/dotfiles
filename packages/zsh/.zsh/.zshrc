@@ -63,6 +63,7 @@ alias tms='tmux new -s'
 # Batcat
 if [ -x "$(command -v bat)" ]; then
   alias cat='bat'
+  alias catt='/usr/bin/cat'
 fi
 
 # eza

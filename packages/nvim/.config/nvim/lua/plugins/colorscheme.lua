@@ -17,4 +17,6 @@ return {
       return { transparent_background = true }
     end,
   },
+  { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
+  { "aereal/vim-colors-japanesque", name = "japanesque", priority = 1000 },
 }

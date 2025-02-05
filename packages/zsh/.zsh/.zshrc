@@ -56,10 +56,9 @@ alias cl='clear'
 alias hh='history'
 
 alias tmux='tmux -u'  # enforce UTF-8
-alias tm='tmux'
+alias tm='tmux new -s'
 alias tml='tmux ls'
-alias tma='tmux attach -t'
-alias tms='tmux new -s'
+alias tma='tmux a'
 
 # Batcat
 if [ -x "$(command -v bat)" ]; then

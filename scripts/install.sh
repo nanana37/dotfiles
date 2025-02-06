@@ -2,18 +2,19 @@
 
 echo "Installing dotfiles..."
 
+### apt ###
+sudo apt install stow
+
 # Stow dotfiles
 sh scripts/stow.sh
 
 # Install dependencies
 echo "Installing dependencies..."
 
-### apt ###
-sudo apt install git npm zip stow
-
 ### brew ###
+brew install npm zip git
 # Below should be downloaded through brew for me, due to the version.
-brew install llvm@17
+# brew install llvm@17
 brew install fzf tmux zsh neovim ripgrep
 
 # Other CLI tools

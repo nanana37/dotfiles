@@ -3,10 +3,11 @@
 echo "Installing dotfiles..."
 
 ### apt ###
+sudo apt update
 sudo apt install stow
 
 # Stow dotfiles
-sh scripts/stow.sh
+./scripts/stow.sh
 
 # Install dependencies
 echo "Installing dependencies..."

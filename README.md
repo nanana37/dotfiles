@@ -15,7 +15,10 @@ My dotfiles.
 ```bash
 git clone https://github.com/nanana37/dotfiles.git
 cd dotfiles
-sh scripts/install.sh
+chmod +x scripts/install.sh
+./scripts/install.sh
+chmod +x scripts/stow.sh
+./scripts/stow.sh
 ```
 
 ## old version

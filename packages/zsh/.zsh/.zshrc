@@ -28,7 +28,7 @@ alias tmuxconfig="vi $HOME/.tmux.conf"
 alias zc='zshconfig'
 alias vc='vimconfig'
 alias tc='tmuxconfig'
-alias dof='cd ~/dotfiles'
+alias dof="cd $DOTFILES"
 
 alias ls='ls --color=auto'
 alias ll='ls -l'

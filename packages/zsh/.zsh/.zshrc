@@ -61,10 +61,10 @@ alias tml='tmux ls'
 alias tma='tmux a'
 
 # Batcat
-if [ -x "$(command -v bat)" ]; then
-  alias cat='bat'
-  alias catt='/usr/bin/cat'
-fi
+# if [ -x "$(command -v bat)" ]; then
+#   alias cat='bat'
+#   alias catt='/usr/bin/cat'
+# fi
 
 # eza
 if [ -x "$(command -v eza)" ]; then

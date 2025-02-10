@@ -143,13 +143,19 @@ export FZF_ALT_C_OPTS="
 source <(fzf --zsh)
 
 # fd - cd to selected directory
-fcd() {
+fzf_cd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
                   -o -type d -print 2> /dev/null | fzf +m) &&
   cd "$dir"
 }
-alias c='fcd'
+alias c='fzf_cd'
+
+# fv - fuzzy open with vim
+fzf_vi() {
+  fzf --preview 'bat --style=numbers --color=always {}' | xargs nvim
+}
+alias v='fzf_vi'
 
 # tldr
 alias tld='tldr "$(tldr -l | fzf)"'

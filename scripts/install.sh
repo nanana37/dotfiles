@@ -3,6 +3,19 @@ set -e
 
 echo "Installing dotfiles..."
 
+# Check for legacy .dotfiles (migration safeguard)
+if [ -e "$HOME/.dotfiles" ] && [ "$(pwd)" != "$HOME/.dotfiles" ]; then
+    echo "⚠️  Detected '$HOME/.dotfiles'."
+    echo "If you are migrating from the old structure, please ensure you have 'unstowed' the old links first."
+    echo "Existing symlinks pointing to ~/.dotfiles will cause conflicts."
+    read -p "Have you resolved potential conflicts? (y/N) " -n 1 -r
+    echo
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        echo "Aborting installation."
+        exit 1
+    fi
+fi
+
 OS="$(uname -s)"
 echo "Detected OS: $OS"
 

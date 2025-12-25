@@ -105,7 +105,13 @@ bindkey -v
 
 #################################  COMPLEMENT  #################################
 # enable completion
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+# Cache completion for 24 hours
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
 
 # 補完候補をそのまま探す -> 小文字を大文字に変えて探す -> 大文字を小文字に変えて探す
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}'

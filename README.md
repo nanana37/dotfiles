@@ -17,9 +17,34 @@ git clone https://github.com/nanana37/dotfiles.git
 cd dotfiles
 chmod +x scripts/install.sh
 ./scripts/install.sh
-chmod +x scripts/stow.sh
-./scripts/stow.sh
 ```
+
+## Migration from old structure
+
+If you have the old structure (`~/.dotfiles`), please follow these steps:
+
+```bash
+# 1. Unstow old links (using the old script if available, or manually)
+cd ~/.dotfiles
+./scripts/stow.sh --unstow
+
+# 2. Rename directory
+cd ..
+mv .dotfiles dotfiles
+cd dotfiles
+
+# 3. Pull latest changes
+git pull
+
+# 4. Install
+./scripts/install.sh
+```
+
+## Supported OS
+
+- macOS (latest)
+- Linux (Ubuntu/Debian)
+
 
 ## old version
 

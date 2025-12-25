@@ -24,7 +24,7 @@ if [ "$OS" = "Linux" ]; then
   if command -v apt &> /dev/null; then
     echo "Using apt..."
     sudo apt update
-    sudo apt install -y stow git zsh tmux neovim ripgrep fzf npm zip bat eza
+    sudo apt install -y stow git zsh tmux neovim ripgrep fzf zip bat
     # Note: Some packages might have different names on Ubuntu/Debian, e.g. fd-find instead of fd.
     # Adjusting for common names.
   else
@@ -55,7 +55,9 @@ else
 fi
 
 # Stow dotfiles
-./scripts/stow.sh
+# Stow dotfiles
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+"$SCRIPT_DIR/stow.sh"
 
 # tpm
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then

@@ -56,7 +56,7 @@ alias cl='clear'
 alias hh='history'
 
 alias tmux='tmux -u'  # enforce UTF-8
-alias tm='tmux new -s'
+alias tm='tmux'
 alias tml='tmux ls'
 alias tma='tmux a'
 

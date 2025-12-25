@@ -9,6 +9,15 @@ font-size = 20
 adjust-cell-height = 2
 font-thicken = true
 keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:down
+keybind = ctrl+k=goto_split:up
 keybind = ctrl+l=goto_split:right
+
+keybind = ctrl+shift+h=new_split:left
+keybind = ctrl+shift+j=new_split:down
+keybind = ctrl+shift+k=new_split:up
+keybind = ctrl+shift+l=new_split:right
+split-divider-color = #CCCCCC
+unfocused-split-opacity = 0.7
 window-inherit-working-directory = true
 shell-integration = detect

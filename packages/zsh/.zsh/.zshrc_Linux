@@ -4,7 +4,9 @@
 
 # Homebrew on Linux
 # https://docs.brew.sh/Homebrew-on-Linux
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 
 # nvim
 # Get as AppImage

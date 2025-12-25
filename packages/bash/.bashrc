@@ -40,4 +40,6 @@ alias vf='v $(fp)'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-eval "$(starship init bash)"
+if command -v starship &>/dev/null; then
+  eval "$(starship init bash)"
+fi

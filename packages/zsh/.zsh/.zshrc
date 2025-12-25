@@ -146,7 +146,13 @@ export FZF_ALT_C_OPTS="
   --preview 'eza {} -a -h -T -F  --no-user --no-time --no-filesize --no-permissions --color=always'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+# For fzf < 0.48.0, source the key-bindings and completion files
+if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
+if [ -f /usr/share/doc/fzf/examples/completion.zsh ]; then
+  source /usr/share/doc/fzf/examples/completion.zsh
+fi
 
 # fd - cd to selected directory
 fzf_cd() {
@@ -175,15 +181,18 @@ alias tld='tldr "$(tldr -l | fzf)"'
 # source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 ## Starship ##
-eval "$(starship init zsh)"
+if command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+fi
 
 #################################  DEPENDENCIES  #################################
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # zoxide
-# zoxide
-eval "$(zoxide init zsh)"
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+fi
 
 # NVM Lazy Load
 export NVM_DIR="$HOME/.nvm"

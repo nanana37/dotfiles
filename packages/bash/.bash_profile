@@ -9,7 +9,9 @@ fi
 
 if [[ $(grep -E "^(ID|NAME)=" /etc/os-release | grep -q "ubuntu")$? == 0 ]]; then
 	# needed for brew to work
-	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+	if [ -x "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+		eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+	fi
 fi
 
 if [ -r ~/.bashrc ]; then

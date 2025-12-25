@@ -216,6 +216,11 @@ up = 'volume up'
 shift-down = ['volume set 0', 'mode main']
 
 # Application specific
+# There are several ways to know app-id:
+# - Take a look at precomposed list of popular application IDs
+# - You can use `aerospace list-apps` CLI command to get IDs of running applications
+# - mdls -name kMDItemCFBundleIdentifier -r /Applications/App.app
+
 [[on-window-detected]]
 if.app-id = 'org.alacritty'
 run = 'move-node-to-workspace T' # mnemonics T - Terminal
@@ -240,3 +245,51 @@ run = 'move-node-to-workspace W' # mnemonics W - Web browser
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
 run = 'move-node-to-workspace M' # mnemonics M - Mail
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace C' # mnemonics C - Code
+# run = 'layout floating'
+
+# Chat GPT
+[[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = 'move-node-to-workspace A' # mnemonics A - AI
+
+# Slack
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace S' # mnemonics S - Slack
+# run = 'layout floating'
+
+# Notion
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = 'move-node-to-workspace N' # mnemonics N - Notion
+# run = 'layout floating'
+
+# Zoom
+[[on-window-detected]]
+if.app-id = 'us.zoom.xos'
+run = 'move-node-to-workspace M' # mnemonics M - for Meeting
+# run = 'layout floating' # Zoom windows are better in floating mode
+
+# iTerm2
+[[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+run = 'move-node-to-workspace T' # mnemonics T - Terminal
+
+# Zen Browser
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = 'move-node-to-workspace Z' # mnemonics Z - Zen Browser
+
+# 1Password
+[[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = 'layout floating'
+
+# Obsidian
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace O' # mnemonics O - Obsidian

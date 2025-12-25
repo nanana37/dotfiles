@@ -24,9 +24,55 @@ if [ "$OS" = "Linux" ]; then
   if command -v apt &> /dev/null; then
     echo "Using apt..."
     sudo apt update
-    sudo apt install -y stow git zsh tmux neovim ripgrep fzf zip bat
+    sudo apt install -y stow git zsh tmux ripgrep fzf zip bat
     # Note: Some packages might have different names on Ubuntu/Debian, e.g. fd-find instead of fd.
     # Adjusting for common names.
+    
+    # Install Neovim (AppImage for latest version)
+    # LazyVim requires Neovim >= 0.11.2, but apt has older versions
+    if ! command -v nvim &>/dev/null || [ "$(nvim --version 2>/dev/null | head -1 | grep -oP 'v0\.\K[0-9]+')" -lt 11 ]; then
+      echo "Installing latest Neovim via AppImage..."
+      
+      # Remove old neovim if installed via apt
+      sudo apt remove -y neovim 2>/dev/null || true
+      
+      # Get latest Neovim version from GitHub API
+      echo "Fetching latest Neovim version..."
+      NVIM_VERSION=$(curl -s https://api.github.com/repos/neovim/neovim/releases/latest | grep -oP '"tag_name": "\K[^"]+')
+      
+      if [ -z "$NVIM_VERSION" ]; then
+        echo "Failed to fetch latest version, using v0.11.5 as fallback"
+        NVIM_VERSION="v0.11.5"
+      fi
+      
+      # Detect architecture
+      ARCH=$(uname -m)
+      if [ "$ARCH" = "x86_64" ]; then
+        NVIM_URL="https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-x86_64.appimage"
+      elif [ "$ARCH" = "aarch64" ]; then
+        NVIM_URL="https://github.com/neovim/neovim/releases/download/${NVIM_VERSION}/nvim-linux-arm64.appimage"
+      else
+        echo "Unsupported architecture: $ARCH"
+        exit 1
+      fi
+      
+      echo "Downloading Neovim ${NVIM_VERSION}..."
+      
+      # Download Neovim AppImage
+      curl -Lo nvim.appimage "$NVIM_URL"
+      chmod u+x nvim.appimage
+      
+      # Move to a standard location
+      sudo mkdir -p /opt/nvim
+      sudo mv nvim.appimage /opt/nvim/nvim
+      
+      # Create symlink in PATH
+      sudo ln -sf /opt/nvim/nvim /usr/local/bin/nvim
+      
+      echo "Neovim installed successfully!"
+    else
+      echo "Neovim is already installed and meets version requirements."
+    fi
     
     # Install starship
     if ! command -v starship &>/dev/null; then

@@ -27,6 +27,18 @@ if [ "$OS" = "Linux" ]; then
     sudo apt install -y stow git zsh tmux neovim ripgrep fzf zip bat
     # Note: Some packages might have different names on Ubuntu/Debian, e.g. fd-find instead of fd.
     # Adjusting for common names.
+    
+    # Install starship
+    if ! command -v starship &>/dev/null; then
+      echo "Installing starship..."
+      curl -sS https://starship.rs/install.sh | sh -s -- -y
+    fi
+    
+    # Install zoxide
+    if ! command -v zoxide &>/dev/null; then
+      echo "Installing zoxide..."
+      curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
+    fi
   else
     echo "apt not found. Please install dependencies manually."
   fi
@@ -70,8 +82,15 @@ current_shell=$(basename "$SHELL")
 if [ "$current_shell" != "zsh" ]; then
   zsh_path=$(which zsh)
   if [ -n "$zsh_path" ]; then
+    # Ensure zsh is in /etc/shells (required for chsh)
+    if ! grep -q "^$zsh_path$" /etc/shells; then
+      echo "Adding $zsh_path to /etc/shells..."
+      echo "$zsh_path" | sudo tee -a /etc/shells >/dev/null
+    fi
+    
     echo "Changing shell to zsh..."
-    chsh -s "$zsh_path"
+    echo "You may be prompted for your password."
+    sudo chsh -s "$zsh_path" "$USER"
   fi
 fi
 

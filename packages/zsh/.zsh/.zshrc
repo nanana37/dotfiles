@@ -106,7 +106,7 @@ bindkey -v
 #################################  COMPLEMENT  #################################
 # enable completion
 autoload -Uz compinit
-# Cache completion for 24 hours
+setopt extendedglob
 if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
   compinit
 else

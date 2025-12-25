@@ -22,8 +22,10 @@ OS="$(uname -s)"
 echo "Detected OS: $OS"
 
 # Stow the dotfiles
-PACKDIR=packages
-for package in $(ls $PACKDIR); do
+# Stow the dotfiles
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PACKDIR="$SCRIPT_DIR/../packages"
+for package in $(ls "$PACKDIR"); do
   # Check if package should be skipped
   if [ "$OS" = "Linux" ]; then
     if [[ " $IGNORE_ON_LINUX " =~ " $package " ]]; then

@@ -43,3 +43,6 @@ alias vf='v $(fp)'
 if command -v starship &>/dev/null; then
   eval "$(starship init bash)"
 fi
+
+# Load local config
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local

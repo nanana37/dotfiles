@@ -180,8 +180,12 @@ alias tld='tldr "$(tldr -l | fzf)"'
 # [[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
 # source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
-## Starship ##
-if command -v starship &>/dev/null; then
+## Prompt ##
+# Set SIMPLE_PROMPT=1 in ~/.zshrc.local to use minimal prompt on specific machines
+if [[ -n "$SIMPLE_PROMPT" ]]; then
+  # Minimal prompt with colors: green user@host, blue dir
+  PROMPT='%F{green}%n@%m%f:%F{blue}%~%f$ '
+elif command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 fi
 

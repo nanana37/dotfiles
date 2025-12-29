@@ -45,6 +45,16 @@ git pull
 - macOS (latest)
 - Linux (Ubuntu/Debian)
 
+## Per-Machine Customization
+
+To use a lightweight prompt on specific machines (e.g., remote servers), create `~/.zshrc.local`:
+
+```bash
+echo 'export SIMPLE_PROMPT=1' >> ~/.zshrc.local
+```
+
+This disables starship and uses a minimal colored prompt instead.
+
 
 ## old version
 

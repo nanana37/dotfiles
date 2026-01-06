@@ -145,14 +145,7 @@ export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'eza {} -a -h -T -F  --no-user --no-time --no-filesize --no-permissions --color=always'
   --bind 'ctrl-/:change-preview-window(down|hidden|)'"
-# Set up fzf key bindings and fuzzy completion
-# For fzf < 0.48.0, source the key-bindings and completion files
-if [ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]; then
-  source /usr/share/doc/fzf/examples/key-bindings.zsh
-fi
-if [ -f /usr/share/doc/fzf/examples/completion.zsh ]; then
-  source /usr/share/doc/fzf/examples/completion.zsh
-fi
+# Set up fzf key bindings and fuzzy completion (Loaded at the end)
 
 # fd - cd to selected directory
 fzf_cd() {
@@ -190,7 +183,12 @@ elif command -v starship &>/dev/null; then
 fi
 
 #################################  DEPENDENCIES  #################################
-# FZF
+# FZF (Loaded after bindkey -v to ensure CTRL+R works in insert mode)
+if command -v fzf &>/dev/null; then
+  source <(fzf --zsh)
+  # Explicitly bind for vi-insert mode as well
+  bindkey -M viins '^R' fzf-history-widget
+fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # zoxide

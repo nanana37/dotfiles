@@ -257,6 +257,11 @@ run = 'move-node-to-workspace C' # mnemonics C - Code
 if.app-id = 'com.openai.chat'
 run = 'move-node-to-workspace A' # mnemonics A - AI
 
+# Antigravity
+[[on-window-detected]]
+if.app-id = 'com.google.antigravity'
+run = 'move-node-to-workspace A' # mnemonics A - Antigravity
+
 # Slack
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'

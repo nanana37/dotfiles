@@ -7,3 +7,7 @@ packages/zsh/.zsh/*
 !.zshrc_*
 !.zshrc.private
 !.p10k.zsh
+
+# AeroSpace private config
+packages/aerospace/.config/aerospace/aerospace.toml
+packages/aerospace/.config/aerospace/aerospace-local.toml

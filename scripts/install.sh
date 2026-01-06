@@ -112,7 +112,9 @@ else
   exit 1
 fi
 
-# Stow dotfiles
+# Generate settings
+"$SCRIPT_DIR/generate-aerospace-config.sh"
+
 # Stow dotfiles
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 "$SCRIPT_DIR/stow.sh"

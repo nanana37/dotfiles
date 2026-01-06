@@ -1,0 +1,7 @@
+# Put your private AeroSpace rules here.
+# This file is gitignored and will be merged with aerospace.toml.template.
+
+# [[on-window-detected]]
+# if.app-id = 'org.mozilla.firefox'
+# if.window-title-regex-substring = ' — MY_PRIVATE_PROFILE$'
+# run = 'move-node-to-workspace S'

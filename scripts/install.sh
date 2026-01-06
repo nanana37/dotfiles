@@ -97,7 +97,7 @@ elif [ "$OS" = "Darwin" ]; then
   fi
 
   echo "Using brew..."
-  brew install npm zip git
+  brew install npm zip git stow
   # Below should be downloaded through brew for me, due to the version.
   # brew install llvm@17
   brew install fzf tmux zsh neovim ripgrep

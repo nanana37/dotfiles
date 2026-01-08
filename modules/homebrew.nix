@@ -11,7 +11,7 @@
     
     # Taps
     taps = [
-      "homebrew/services"
+      # "homebrew/services" # Deprecated
     ];
 
     # Brews

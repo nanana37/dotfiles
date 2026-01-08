@@ -15,9 +15,14 @@
       # "homebrew/services" # Deprecated
     ];
 
-    # Brews
+    # Brews (CLI tools)
     brews = [
-      "mas" # Mac App Store CLI
+      "mas"      # Mac App Store CLI
+      "tmux"
+      "neovim"
+      "git"
+      "npm"
+      "zsh"
     ];
 
     # Casks

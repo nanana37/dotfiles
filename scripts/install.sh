@@ -103,7 +103,7 @@ elif [ "$OS" = "Darwin" ]; then
   brew install fzf tmux zsh neovim ripgrep
   
   # Other CLI tools
-  brew install bat eza powerlevel10k lazygit
+  brew install bat eza powerlevel10k lazygit htop
   
   # macOS specific
   brew install --cask karabiner-elements nikitabobko/tap/aerospace ghostty
@@ -113,10 +113,10 @@ else
 fi
 
 # Generate settings
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 "$SCRIPT_DIR/generate-aerospace-config.sh"
 
 # Stow dotfiles
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 "$SCRIPT_DIR/stow.sh"
 
 # tpm

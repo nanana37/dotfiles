@@ -63,4 +63,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # Suppress "builtins.toFile" warning by disabling manual generation
+  manual.manpages.enable = false;
+  manual.html.enable = false;
+  manual.json.enable = false;
 }

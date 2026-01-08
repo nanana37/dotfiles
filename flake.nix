@@ -18,7 +18,11 @@
     configuration = { pkgs, ... }: {
       # Custom Nix configuration
       nix.enable = false; # We use the Determinate Systems installer
+      # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
+      
+      # Fix "Nix search path entry ... does not exist" warning
+      nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
       # Set primary user for hidden system preferences
       system.primaryUser = username;

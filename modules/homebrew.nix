@@ -18,6 +18,7 @@
     # Brews
     brews = [
       "mas" # Mac App Store CLI
+      "stow" # Symlink farm manager (for configs that need to be writable)
     ];
 
     # Casks

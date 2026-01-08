@@ -31,8 +31,8 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # Symlink Karabiner configuration
-    ".config/karabiner".source = ../packages/karabiner/.config/karabiner;
+    # Karabiner is managed via stow (needs to be writable)
+    # Use: cd ~/dotfiles && stow -R packages/karabiner
   };
 
   # Home Manager can also manage your environment variables through

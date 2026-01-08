@@ -1,88 +1,85 @@
 # dotfiles
 
-My dotfiles.
+My dotfiles for macOS and Linux.
 
-[GNU Stow](https://www.gnu.org/software/stow/manual/stow.html) is used to manage symlinks.
+## Quick Start
 
-- [x] neovim (with [lazy.nvim](https://github.com/folke/lazy.nvim))
-- [x] zsh
-- [x] tmux
-- [ ] bash (relatively slow for git prompt)
-- [ ] Wezterm (not yet. See [Considerations for Wezterm](#considerations-for-wezterm))
-
-## Installation
+### macOS (with Nix + Stow)
 
 ```bash
-git clone https://github.com/nanana37/dotfiles.git
-cd dotfiles
-chmod +x scripts/install.sh
+# 1. Install Nix (Determinate Systems installer)
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+# 2. Clone and setup
+git clone https://github.com/nanana37/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+
+# 3. Install everything
+make all
+```
+
+### Linux (Stow only)
+
+```bash
+git clone https://github.com/nanana37/dotfiles.git ~/dotfiles
+cd ~/dotfiles
 ./scripts/install.sh
 ```
 
-## Migration from old structure
+## What's Managed
 
-If you have the old structure (`~/.dotfiles`), please follow these steps:
+| Component | Tool | Command |
+|-----------|------|---------|
+| GUI Apps (Firefox, Ghostty, etc.) | Nix + Homebrew | `make switch` |
+| CLI Tools (fzf, eza, bat, etc.) | Nix | `make switch` |
+| Dotfiles (zsh, tmux, nvim, etc.) | Stow | `make stow` |
+
+## Commands
 
 ```bash
-# 1. Unstow old links (using the old script if available, or manually)
-cd ~/.dotfiles
-./scripts/stow.sh --unstow
-
-# 2. Rename directory
-cd ..
-mv .dotfiles dotfiles
-cd dotfiles
-
-# 3. Pull latest changes
-git pull
-
-# 4. Install
-./scripts/install.sh
+make all      # Install everything (switch + stow)
+make switch   # Install apps and CLI tools via Nix
+make stow     # Link dotfiles via stow
+make unstow   # Unlink dotfiles
+make clean    # Garbage collect old Nix generations
 ```
 
-## Supported OS
+## Structure
 
-- macOS (latest)
-- Linux (Ubuntu/Debian)
+```
+dotfiles/
+├── flake.nix           # Nix flake entry point
+├── Makefile            # Convenience commands
+├── modules/
+│   ├── home.nix        # CLI tools (fzf, eza, stow, etc.)
+│   └── homebrew.nix    # macOS apps (Casks, Brews)
+├── packages/           # Dotfiles managed by stow
+│   ├── aerospace/
+│   ├── karabiner/
+│   ├── nvim/
+│   ├── starship/
+│   ├── tmux/
+│   └── zsh/
+└── scripts/
+    ├── install.sh      # Legacy installer (Linux)
+    ├── stow.sh         # Stow wrapper
+    └── generate-aerospace-config.sh
+```
 
 ## Per-Machine Customization
 
-To use a lightweight prompt on specific machines (e.g., remote servers), create `~/.zshrc.local`:
-
+For lightweight prompt on servers:
 ```bash
 echo 'export SIMPLE_PROMPT=1' >> ~/.zshrc.local
 ```
 
-This disables starship and uses a minimal colored prompt instead.
+## Aerospace Private Config
 
+Aerospace config may contain private workspace names. To customize:
 
-## old version
-
-Previous dotfiles is [here](https://github.com/nanana37/old-dotfiles) (*private repo).
-
-- [x] neovim (with [vim-plug](https://github.com/junegunn/vim-plug))
-- [x] zsh
-- [x] tmux
-
-## Considerations for Wezterm
-
-Terminal emulator
-[wez/wezterm](https://github.com/wez/wezterm)
-
-Pros
-
-- GPU-accelerated
-- Cross platform
-- Multiplexer (no need for tmux?)
-- Customize
-  - Lua
-  - Rich documents
-  - Lots of colorscheme :)
-
-Cons
-
-- vs tmux
-  - no popup
-  - no kill-session
-- vs iTerm
-  - no Hotkey
+```bash
+cp packages/aerospace/.config/aerospace/aerospace-local.toml.example \
+   packages/aerospace/.config/aerospace/aerospace-local.toml
+# Edit aerospace-local.toml with your settings
+make stow  # Regenerates and links config
+```

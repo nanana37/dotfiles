@@ -1,16 +1,23 @@
-# Makefile for Nix Darwin
+# Makefile for Nix Darwin + Stow
 
-# The name of the nix-darwin configuration entry point
-# This matches `darwinConfigurations."macos"` in flake.nix
 FLAKE_URI := .#macos
 
-.PHONY: all switch check clean
+.PHONY: all switch stow unstow check clean
 
-all: switch
+all: switch stow
 
-# Deploy the configuration to the current system
+# Deploy Nix configuration (installs apps via Homebrew)
 switch:
 	darwin-rebuild switch --flake $(FLAKE_URI) --impure
+
+# Link dotfiles with stow
+stow:
+	./scripts/generate-aerospace-config.sh
+	./scripts/stow.sh
+
+# Unlink dotfiles
+unstow:
+	./scripts/stow.sh --unstow
 
 # Check the flake for errors
 check:

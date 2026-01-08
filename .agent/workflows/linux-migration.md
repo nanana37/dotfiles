@@ -1,59 +1,36 @@
 ---
-description: Migrate a Linux server from legacy stow-based dotfiles to Nix home-manager
+description: Setup dotfiles on a Linux server
 ---
 
-# Linux Migration Workflow
+# Linux Setup Workflow
 
-This workflow migrates an existing server with stow-deployed dotfiles to the new Nix-based setup.
+Setup dotfiles on a Linux server using the legacy stow-based approach.
 
 ## Prerequisites
 - SSH access to the target server
-- The old dotfiles are in `~/dotfiles` (stow-based setup)
+- Git installed
 
 ## Steps
 
-### 1. Unstow existing dotfiles
-First, remove the existing symlinks created by stow:
-
+### 1. Clone the repository
 ```bash
+git clone https://github.com/nanana37/dotfiles.git ~/dotfiles
 cd ~/dotfiles
-./scripts/stow.sh --unstow
 ```
 
-This removes all symlinks pointing to `~/dotfiles/packages/*` from your home directory.
-
-### 2. Install Nix (Determinate Systems installer)
+### 2. Run the installer
 // turbo
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-```
-
-After installation, start a new shell or source the Nix profile:
-```bash
-. /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-```
-
-### 3. Pull the latest dotfiles
-```bash
-cd ~/dotfiles
-git fetch origin
-git checkout feature/nix-migration  # or main after merging
-git pull
-```
-
-### 4. Apply Home Manager configuration
-// turbo
-```bash
-nix run home-manager/master -- switch --flake ".#linux" --impure
+./scripts/install.sh
 ```
 
 This will:
-- Install all packages defined in `modules/shell.nix` (fzf, eza, bat, ripgrep, fd, zoxide)
-- Configure Zsh with aliases, vi mode, and custom functions
-- Configure Starship prompt with Catppuccin theme
-- Configure Tmux with your keybindings and plugins
+- Install packages via apt (stow, fzf, tmux, neovim, etc.)
+- Install starship and zoxide
+- Run stow to link dotfiles
+- Set zsh as default shell
 
-### 5. Restart your shell
+### 3. Restart your shell
 ```bash
 exec zsh
 ```
@@ -66,11 +43,10 @@ starship --version
 # Check zsh aliases
 alias | grep ls
 
-# Check tmux config is applied
+# Check tmux config
 tmux list-keys | grep prefix
 ```
 
 ## Notes
-- Karabiner and Aerospace are macOS-only and not included in the Linux config
-- TPM (Tmux Plugin Manager) is managed natively by Nix, no need to install separately
-- If you need to revert, the old stow setup still works: `./scripts/stow.sh`
+- Karabiner and Aerospace are macOS-only and skipped on Linux
+- If you need to unlink: `./scripts/stow.sh --unstow`

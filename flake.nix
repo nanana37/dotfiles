@@ -67,5 +67,17 @@
 
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations."macos".pkgs;
+
+    # Standalone Home Manager configuration for Linux
+    homeConfigurations."linux" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      modules = [
+        ./modules/home-linux.nix
+        {
+          home.username = builtins.getEnv "USER";
+          home.homeDirectory = "/home/${builtins.getEnv "USER"}";
+        }
+      ];
+    };
   };
 }

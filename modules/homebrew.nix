@@ -30,7 +30,8 @@
       "notion"
       "1password"
       "nikitabobko/tap/aerospace" # Tiling Window Manager
-      #"tailscale" # If you want to manage tailscale via brew
+      "tailscale-app"
+      "karabiner-elements"
     ];
     
     # Mac App Store Apps

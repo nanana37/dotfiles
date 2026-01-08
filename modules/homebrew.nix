@@ -11,6 +11,7 @@
     
     # Taps
     taps = [
+      "nikitabobko/tap"
       # "homebrew/services" # Deprecated
     ];
 
@@ -21,9 +22,15 @@
 
     # Casks
     casks = [
-      # "firefox"
-      # "google-chrome"
-      # "visual-studio-code"
+      "ghostty"
+      "firefox"
+      "google-chrome"
+      "visual-studio-code" 
+      "slack"
+      "notion"
+      "1password"
+      "nikitabobko/tap/aerospace" # Tiling Window Manager
+      #"tailscale" # If you want to manage tailscale via brew
     ];
     
     # Mac App Store Apps
